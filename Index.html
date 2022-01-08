@@ -10,14 +10,35 @@
 
 <body class="page">
   <header class="header">
-      <a href="#"><img src="./Images/logo.png"></a>
-      <img src="./Images/logo_line.png">
+      <a href="#"><img class="header__logo" src="./Images/logo.png"></a>
+      <hr class="header__line">
   </header>
 
   <main class="content">
+    <section class="profile">
+      <div class="profile__description">
+        <div class="profile__avatar-container">
+          <img src="/Images/avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
+        <!--edit avatar button-->
+        </div>
+        <div class="profile__info">
+          <div class="profile__top-title">
+           <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button"  class="profile__edit-info-button"></button>
+          </div>
+          <p class="profile__caption">Исследователь океана</p>
+        </div>
+      </div>
+      <button type="button"  class="profile__add-button"></button>
+    </section>
+
+    <section class="elements">
+      <!--реализовать добавление с помощью js-->
+    </section>
   </main>
 
   <footer class="footer">
+    <p class="footer__copyright"> &copy; 2020 Mesto Russia</p>
   </footer>
 
   <template>

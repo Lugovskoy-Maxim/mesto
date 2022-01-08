@@ -1,3 +1,6 @@
 .page {
   background: #000;
+  padding: 45px 200px 60px;
+  color: white;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
