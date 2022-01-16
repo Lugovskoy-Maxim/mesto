@@ -1,6 +1,8 @@
 .page {
+  align-items: center;
   background: #000;
-  padding: 45px 200px 60px;
+margin: 45px auto 60px;
   color: white;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
+  max-width: calc(880px);
 }

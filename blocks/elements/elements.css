@@ -1,9 +1,9 @@
 .elements {
-  list-style: none;
+  column-gap: 17px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 282px);
-  gap: 20px 17px;
-  margin: 0;
-  padding: 0;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit,282px);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  justify-content: space-evenly;
+  row-gap: 20px;
 }
