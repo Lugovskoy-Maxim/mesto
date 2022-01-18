@@ -9,4 +9,10 @@
   min-height: 50px;
   padding: 0;
   background-color: transparent;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }

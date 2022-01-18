@@ -4,4 +4,10 @@
   object-fit: cover;
   margin: 0;
   padding: 0;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.header__logo:hover {
+  opacity: 0.6;
 }
