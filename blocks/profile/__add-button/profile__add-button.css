@@ -11,6 +11,7 @@
   background-color: transparent;
   cursor: pointer;
   transition: opacity .5s;
+  grid-area: addbutton;
 }
 
 .profile__add-button:hover {

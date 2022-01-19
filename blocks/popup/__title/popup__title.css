@@ -10,3 +10,12 @@
   color: #000;
   text-align: center;
 }
+
+
+@media (max-width: 500px) {
+  .popup__title {
+    width: 238px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
