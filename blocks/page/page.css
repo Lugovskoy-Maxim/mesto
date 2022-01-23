@@ -5,10 +5,13 @@
   color: white;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   max-width: 880px;
+  min-width: 320px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 970px) {
   .page {
     margin: 28px auto 36px;
+    margin-left: 19px;
+    margin-right: 19px;
   }
 }

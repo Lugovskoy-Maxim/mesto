@@ -1,3 +1,4 @@
 .profile__info {
   display: column;
+  grid-area: info;
 }
