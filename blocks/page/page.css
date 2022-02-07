@@ -5,7 +5,7 @@
   color: white;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   max-width: 880px;
-  min-width: calc(320px - 19px*2);
+  min-width: 320px;
 }
 
 @media (max-width: 970px) {
