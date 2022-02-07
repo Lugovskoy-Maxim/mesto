@@ -1,9 +1,6 @@
 .header {
-  position: relative;
-  align-items: center;
+  display: flex;
   justify-content: flex-start;
-
+  border-bottom: 1px solid rgba(54, 54, 54, 0.7);
   min-height: 74px;
-
 }
-

@@ -5,27 +5,29 @@
   <link rel="stylesheet" href="./pages/index.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проект: Mesto</title>
+  <title>Mesto</title>
 </head>
 
 <body class="page">
   <header class="header">
-      <div class="header__logo"><a class="header__link" href="#" alt="На главную"></a></div>
+      <div class="header__logo"><a class="header__link" href="#" ></a></div>
       <div class="header__line"></div>
   </header>
 
   <main class="content">
     <section class="profile">
-          <img src="./Images/avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
+        <div class="profile__avatar-container">
+          <img src="/Images/avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
         <!--edit avatar button-->
+        </div>
         <div class="profile__info">
           <div class="profile__top-title">
            <h1 class="profile__name">Жак-ИВ Кусто</h1>
-            <button type="button"  class="profile__edit"></button>
+            <button type="button"  class="profile__edit-info-button"></button>
           </div>
           <p class="profile__caption">Исследователь океана</p>
         </div>
-      <button type="button"  class="profile__add"></button>
+      <button type="button"  class="profile__add-button"></button>
     </section>
 
     <section class="elements">
@@ -111,8 +113,6 @@
     </section>
 
 
-
-
   </main>
 
   <footer class="footer">
@@ -141,16 +141,16 @@
             required >
         </label>
         <button type="submit"
-          class="popup__save">
+          class="popup__save-button">
           Сохранить
         </button>
       </form>
       <button type="button"
-        class="popup__close">
+        class="popup__close-button">
       </button>
     </div>
   </section>
 
-  <script src="./scripts/popup.js"></script>
+  <script src="/scripts/popup.js"></script>
 </body>
 </html>
