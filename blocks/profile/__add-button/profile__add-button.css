@@ -1,5 +1,5 @@
-.profile__add {
-  background: url(../../../Images/Vectoradd.svg) no-repeat;
+.profile__add-button {
+  background: url(../../../Images/add_button.png) no-repeat;
   background-size: 22px;
   background-position: center;
   border: 2px solid #fff;
@@ -14,12 +14,12 @@
   grid-area: addbutton;
 }
 
-.profile__add:hover {
+.profile__add-button:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 970px) {
-  .profile__add {
+  .profile__add-button {
     width: 282px;
     height: 50px;
     border: 2px solid #FFFFFF;
