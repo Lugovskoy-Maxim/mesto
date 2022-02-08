@@ -4,7 +4,6 @@
   grid-template-areas:
     "image info . . . . . . addbutton";
   justify-content: space-between;
-  align-items: center;
   margin: 0 auto;
   align-items: center;
 }

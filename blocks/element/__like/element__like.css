@@ -7,7 +7,6 @@
   background-position: center;
   background-color: #fff;
   border: none;
-  background-color: transparent;
   cursor: pointer;
   transition: opacity .5s;
 }

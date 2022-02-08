@@ -1,5 +1,7 @@
 .header__line {
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #545454;
+  margin-top: 41px;
+  background: url(../../../Images/Lineline.svg) repeat-x;
+  background-size: contain;
+  height: 1px;
+  padding: 0;
 }
