@@ -10,8 +10,6 @@
 
 @media (max-width: 970px) {
   .page {
-    margin: 28px auto 36px;
-    margin-left: 19px;
-    margin-right: 19px;
+    margin: 28px 19px 36px;
   }
 }

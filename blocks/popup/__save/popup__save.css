@@ -12,6 +12,7 @@
   justify-content: center;
   cursor: pointer;
   transition: opacity .5s;
+  margin-top: 48px;
 }
 
 .popup__save:hover {

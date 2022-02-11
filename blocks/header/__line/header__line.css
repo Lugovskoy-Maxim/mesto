@@ -5,3 +5,18 @@
   height: 1px;
   padding: 0;
 }
+
+@media screen and (max-width: 500px) {
+  .header__line {
+    margin-top: 31px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header__line{
+    position: absolute;
+
+    width: 320px;
+    left: -19px;
+  }
+}
