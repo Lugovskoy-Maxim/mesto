@@ -1,15 +1,9 @@
 .page {
   align-items: center;
+  margin: 0 auto;
   background: #000;
-  margin: 45px auto 60px;
   color: white;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   max-width: 880px;
   min-width: calc(320px - 19px*2);
-}
-
-@media (max-width: 970px) {
-  .page {
-    margin: 28px 19px 36px;
-  }
 }

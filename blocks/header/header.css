@@ -1,7 +1,13 @@
 .header {
   position: relative;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 74px;
+  min-height: 120px;
+  border-bottom: 1px solid #545454;
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    min-height: 84px;
+  }
 }
 
