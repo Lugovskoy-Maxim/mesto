@@ -1,23 +1,22 @@
 .header__logo {
+  margin-top: 40px;
+  margin-left: 40px;
   height: 33px;
   width: 142px;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
   cursor: pointer;
   transition: opacity .5s;
-  background: url(../../../Images/Vectorlogo.svg) no-repeat;
+  background: url(../../../Images/Vectorlogo.svg) no-repeat cover;
 }
 
 .header__logo:hover {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 650px) {
   .header__logo {
     width: 103px;
     height: 24px;
-    object-fit: cover;
-    background-size: cover;
+    margin-left: 27px;
+    margin-top: 28px;
   }
 }

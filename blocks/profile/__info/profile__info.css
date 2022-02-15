@@ -1,4 +1,6 @@
 .profile__info {
   display: column;
   grid-area: info;
+  min-width: 282px;
+  min-height: 54px;
 }
