@@ -1,8 +1,9 @@
 .popup__container {
+  position: relative;
   background: #FFFFFF;
   border-radius: 10px;
   position: relative;
-  width: calc(430px - 34px*2);
+  max-width: calc(430px - 34px*2);
   justify-content: center;
   text-align: center;
   color: black;
