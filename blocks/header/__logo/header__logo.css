@@ -1,6 +1,6 @@
 .header__logo {
-  margin-top: 40px;
-  margin-left: 40px;
+  margin-top: 45px;
+  margin-left: 0px;
   height: 33px;
   width: 142px;
   cursor: pointer;
@@ -10,6 +10,12 @@
 
 .header__logo:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 910px) {
+  .header__logo{
+    margin-left: 40px;
+  }
 }
 
 @media screen and (max-width: 650px) {
