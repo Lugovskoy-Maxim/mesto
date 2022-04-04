@@ -5,7 +5,6 @@
   width: 142px;
   cursor: pointer;
   transition: opacity .5s;
-  background: url(../../../Images/Vectorlogo.svg) no-repeat cover;
 }
 
 .header__logo:hover {
