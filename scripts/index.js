@@ -54,9 +54,9 @@ function formSubmitHandler (evt) {
   modalWindowToggle();
 }
 
-profileNameEdit.addEventListener('click', openPopupProfile);
-buttonClose.addEventListener('click', modalWindowToggle);
-formElement.addEventListener('submit', formSubmitHandler);
+profileNameEdit.addEventListener('click', openPopupProfile); //открыть
+buttonClose.addEventListener('click', modalWindowToggle);  //закрыть
+formElement.addEventListener('submit', formSubmitHandler); //сохранить
 
 
 ////////// выводит карточки из масива
