@@ -1,6 +1,7 @@
 const profileNameEdit = document.querySelector('.profile__edit');
 const buttonClose = document.querySelector('.popup__close');
 const popup = document.querySelector('.popup');
+const like = document.querySelector('.element__like');
 const submitBtn = document.querySelector('.popup__save');
 const formElement = document.querySelector('.popup__form');
 const nameInput = document.querySelector('#name') ;
@@ -81,5 +82,6 @@ function getCard(item) {
 }
 
 render();
+
 
 
