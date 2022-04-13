@@ -1,0 +1,17 @@
+.element__cards-remuve {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: url(../../../Images/Trash-top.svg) ,
+  url(../../../Images/Trash-bot.svg) no-repeat;
+  background-size: cover;
+  transition: opacity .5s;
+  border: none;
+  cursor: pointer;
+  height: 18px;
+  width: 19px;
+}
+
+.element__cards-remuve:hover {
+opacity: 0.8;
+}
