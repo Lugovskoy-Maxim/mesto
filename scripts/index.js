@@ -1,13 +1,19 @@
 const profileNameEdit = document.querySelector('.profile__edit');
-const buttonClose = document.querySelector('.popup__close');
-const popup = document.querySelector('.popup');
-const like = document.querySelector('.element__like');
+const buttonCloseProfile = document.querySelector('.popup__close');
+const popupProfile = document.querySelector('.popup_profile');
 const submitBtn = document.querySelector('.popup__save');
 const formElement = document.querySelector('.popup__form');
 const nameInput = document.querySelector('#name') ;
 const jobInput = document.querySelector('#job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__caption');
+
+const popupAdd = document.querySelector('.popup_add');
+const popupAddButton = document.querySelector('.profile__add')
+const buttonCloseCard = document.querySelector('.popup__close-card');
+const like = document.querySelector('.element__like');
+const titleInput = document.querySelector('#title') ;
+const linkInput = document.querySelector('#link');
 
 const initialCards = [
   {
@@ -36,12 +42,17 @@ const initialCards = [
   }
 ];
 
-const modalWindowToggle = () => {
-  popup.classList.toggle('popup_opened');
+function openPopup(popupName) {
+  popupName.classList.add('popup_opened');
+}
+
+function closePopup(popupName){
+  popupName.classList.remove('popup_opened');
 }
 
 function openPopupProfile() {
-  modalWindowToggle();
+  popupName =  popupProfile;
+  openPopup(popupName);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
@@ -50,14 +61,27 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   const nameValue = nameInput.value;
   const jobValue = jobInput.value;
+  popupName =  popupProfile;
   profileName.textContent = nameValue;
   profileJob.textContent = jobValue;
-  modalWindowToggle();
+  openPopup(popupName);
 }
 
 profileNameEdit.addEventListener('click', openPopupProfile); //открыть
-buttonClose.addEventListener('click', modalWindowToggle);  //закрыть
+buttonCloseProfile.addEventListener('click', function() {closePopup(popupProfile)});
 formElement.addEventListener('submit', formSubmitHandler); //сохранить
+
+popupAddButton.addEventListener('click', openPopupAdd);
+buttonCloseCard.addEventListener('click', closePopupAdd);
+
+function openPopupAdd() {
+  popupAdd.classList.add('popup_opened');
+}
+
+function closePopupAdd() {
+  popupAdd.classList.remove('popup_opened');
+}
+
 
 
 ////////// выводит карточки из масива
@@ -78,10 +102,25 @@ function getCard(item) {
   const ImageCard = getTemplate.querySelector('.element__image');
   ImageCard.src = item.link;
 
+  getTemplate.querySelector('.element__like').addEventListener('click', function (item) {
+    item.target.classList.toggle('element__like_active');
+  });
+
   return getTemplate;
 }
 
+
+
+
 render();
+
+
+///
+
+
+
+
+
 
 
 
