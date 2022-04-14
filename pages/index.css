@@ -9,7 +9,6 @@
 /*content*/
 /*profile*/
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/element/__like/_active/element__like_active.css);
 @import url(../blocks/profile/__add/profile__add.css);
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/profile/__top-title/profile__top-title.css);
@@ -20,6 +19,7 @@
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/element/__cards-remuve/element__cards-remuve.css);
 
+
 /*elements*/
 @import url(../blocks/elements/elements.css);
 /*element*/
@@ -28,6 +28,7 @@
 @import url(../blocks/element/__like/element__like.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__descripion/element__description.css);
+@import url(../blocks/element/__like/_active/element__like_active.css);
 
 /*footer*/
 @import url(../blocks/footer/footer.css);
