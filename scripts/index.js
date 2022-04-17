@@ -85,10 +85,9 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   const nameValue = nameInput.value;
   const jobValue = jobInput.value;
-  popupName =  popupProfile;
   profileName.textContent = nameValue;
   profileJob.textContent = jobValue;
-  openPopup(popupName);
+  closePopup(popupProfile);
 }
 function formSubmitHandlerAdd (evt) {
   evt.preventDefault();
