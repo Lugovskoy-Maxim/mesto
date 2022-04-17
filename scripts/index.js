@@ -19,10 +19,10 @@ const titleInput = document.querySelector('#title') ;
 const linkInput = document.querySelector('#link');
 const listElements = document.querySelector ('.elements');
 const cardsTemplate = document.querySelector ('.cards-template');
-const popupPreview = document.querySelector ('.popup__image');
-const popupPreviewImage = document.querySelector ('.popup__image_preview');
+const popupPreview = document.querySelector ('.popup__photo');
+const popupPreviewImage = document.querySelector ('.popup__image');
 const buttonClosePreview = document.querySelector('.popup__close-image');
-const previewTitle = document.querySelector('.popup__image_title');
+const previewTitle = document.querySelector('.popup__image-title');
 const initialCards = [
   {
     name: 'Архыз',
