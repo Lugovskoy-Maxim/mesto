@@ -9,12 +9,12 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__caption');
 const cardsTitleInput = document.querySelector('#title');
 const cardsimageInput = document.querySelector('#link');
-const popupAdd = document.querySelector('.popup__type_add-card');
+const popupAdd = document.querySelector('.popup_add');
 const popupAddButton = document.querySelector('.profile__add');
 const buttonCloseCard = document.querySelector('.popup__close-card');
 const listElements = document.querySelector('.elements');
 const cardsTemplate = document.querySelector('.cards-template');
-const popupPreview = document.querySelector('.popup__type_preview');
+const popupPreview = document.querySelector('.popup_photo');
 const popupPreviewImage = document.querySelector('.popup__image');
 const buttonClosePreview = document.querySelector('.popup__close-image');
 const previewTitle = document.querySelector('.popup__image-title');
@@ -106,9 +106,3 @@ function getCard(name, link) {
 
   return TemplateCard;
 }
-
-
-
-
-
-
