@@ -1,4 +1,4 @@
-import cardsJs from './cards.js';
+import { initialCards } from './cards.js';
 const profileNameEdit = document.querySelector('.profile__edit');
 const buttonCloseProfile = document.querySelector('.popup__close-profile');
 const popupProfile = document.querySelector('.popup_type_profile');
@@ -47,7 +47,7 @@ popupAddButton.addEventListener('click', () => {openPopup(popupAdd)});
 buttonCloseCard.addEventListener('click', () => {closePopup(popupAdd)});
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
 buttonClosePreview.addEventListener('click', function () { closePopup(popupPreview) });
-cardsJs(initialCards).forEach(function (card) {
+initialCards.forEach(function (card) {
   renderImage(card.name, card.link);
 });
 
@@ -59,7 +59,7 @@ function formSubmitHandlerAdd(evt) {
   evt.preventDefault();
   addCard(cardsTitleInput.value, cardsimageInput.value);
   formElementAdd.reset();
-  closePopup();
+  closePopup(popupAdd);
 }
 function addCard(name, link) {
   const newCards = getCard(name, link);
