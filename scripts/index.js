@@ -20,24 +20,30 @@ const buttonClosePreview = document.querySelector('.popup__close-image');
 const previewTitle = document.querySelector('.popup__image-title');
 const formElementAdd = document.querySelector('.popup__form_add');
 
-profileNameEdit.addEventListener('click', openPopupProfile); //открыть
-buttonCloseProfile.addEventListener('click', function() {closePopup(popupProfile)});
-formElement.addEventListener('submit', formSubmitHandler); //сохранить
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
 }
-function closePopup(popupName){
-  popupName.classList.remove('popup_opened');
-}
+
 function openPopupProfile() {
   openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
-function formSubmitHandler (evt) {
+
+profileNameEdit.addEventListener('click', openPopupProfile);
+
+function closePopup(popupName){
+  popupName.classList.remove('popup_opened');
+}
+
+buttonCloseProfile.addEventListener('click', () => {closePopup(popupProfile)});
+formElement.addEventListener('submit', handlerFormSubmit);
+
+function handlerFormSubmit (evt) {
   evt.preventDefault();
   const nameValue = nameInput.value;
   const jobValue = jobInput.value;
+
   profileName.textContent = nameValue;
   profileJob.textContent = jobValue;
   closePopup(popupProfile);
@@ -45,50 +51,62 @@ function formSubmitHandler (evt) {
 
 popupAddButton.addEventListener('click', () => {openPopup(popupAdd)});
 buttonCloseCard.addEventListener('click', () => {closePopup(popupAdd)});
-formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
-buttonClosePreview.addEventListener('click', function () { closePopup(popupPreview) });
+function handlerFormSubmitAdd(evt) {
+  evt.preventDefault();
+  addCard(cardsTitleInput.value, cardsimageInput.value);
+  formElementAdd.reset();
+  closePopup(popupAdd);
+}
+
+formElementAdd.addEventListener('submit', handlerFormSubmitAdd);
+buttonClosePreview.addEventListener('click', () => { closePopup(popupPreview) });
+
 initialCards.forEach(function (card) {
   renderImage(card.name, card.link);
 });
 
 function renderImage(names, links) {
   const cardsResult = getCard(names, links);
+
   listElements.prepend(cardsResult);
 }
-function formSubmitHandlerAdd(evt) {
-  evt.preventDefault();
-  addCard(cardsTitleInput.value, cardsimageInput.value);
-  formElementAdd.reset();
-  closePopup(popupAdd);
-}
+
 function addCard(name, link) {
-  const newCards = getCard(name, link);
-  listElements.prepend(newCards);
+  const newCard = getCard(name, link);
+
+  listElements.prepend(newCard);
 }
-function getCard(name, link) {
-  const getTemplate = cardsTemplate.content.cloneNode(true);
-  getTemplate.querySelector('.element__title').textContent = name;
-  getTemplate.querySelector('.element__image').alt = name;
-  getTemplate.querySelector('.element__image').src = link;
-  getTemplate.querySelector('.element__cards-remove').addEventListener('click', removeCard);
-  getTemplate.querySelector('.element__image').addEventListener('click', function () {
-    previewImage(name, link);
-  });
-  getTemplate.querySelector('.element__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like_active');
-  });
-  return getTemplate;
-}
+
 function removeCard(evt) {
-  const element = evt.target.closest('.element');
-  element.remove();
-};
-function previewImage(name, link) {
+  evt.target.closest('.element').remove();
+}
+
+function openPreviewImage(name, link) {
   popupPreviewImage.setAttribute('src', link);
   popupPreviewImage.setAttribute('alt', name);
   previewTitle.textContent = name;
   openPopup(popupPreview);
-};
+}
+
+function getCard(name, link) {
+  const TemplateCard = cardsTemplate.content.cloneNode(true);
+
+  TemplateCard.querySelector('.element__title').textContent = name;
+  const elementImage = TemplateCard.querySelector('.element__image');
+
+  elementImage.alt = name;
+  elementImage.src = link;
+  TemplateCard.querySelector('.element__cards-remove').addEventListener('click', removeCard);
+  TemplateCard.querySelector('.element__image').addEventListener('click', () => {
+    openPreviewImage(name, link);
+  });
+  TemplateCard.querySelector('.element__like').addEventListener('click', (evt) => {
+    evt.target.classList.toggle('element__like_active');
+  });
+
+  return TemplateCard;
+}
+
 
 
 
