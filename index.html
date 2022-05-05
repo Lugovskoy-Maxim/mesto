@@ -60,17 +60,23 @@
   <section class="popup popup_type_profile">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="editProfile">
+      <form class="popup__form" name="editProfile" novalidate>
         <label class="popup__field">
           <input
+            novalidate
             type="text"
             class="popup__input"
             placeholder="Имя"
             name="name"
             id="name"
             minlength="2"
-            maxlength="30"
-            required>
+            maxlength="40"
+            required
+          >
+          <span
+            class="popup__field-error"
+            id="name-error">
+          </span>
         </label>
         <label class="popup__field">
           <input
@@ -80,10 +86,20 @@
             class="popup__input"
             placeholder="Профессиональная деятельность"
             minlength="2"
-            maxlength="50"
-            required>
+            maxlength="200"
+            required
+          >
+          <span
+            class="popup__field-error"
+            id="job-error">
+          </span>
           </label>
-        <button type="submit" class="popup__save">Сохранить</button>
+        <button
+          type="submit"
+          class="popup__save
+          popup__button_disable">
+          Сохранить
+        </button>
       </form>
       <button
         type="button"
@@ -97,7 +113,7 @@
   <section class="popup popup_type_add">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form_add" name="editProfile">
+      <form class="popup__form popup__form_add" name="editProfile" novalidate>
         <label class="popup__field">
           <input
             type="text"
@@ -107,7 +123,12 @@
             id="title"
             minlength="2"
             maxlength="30"
-            required>
+            required
+          >
+          <span
+            class="popup__field-error"
+            id="title-error">
+          </span>
           </label>
         <label class="popup__field">
           <input
@@ -116,14 +137,18 @@
             name="link"
             class="popup__input"
             placeholder="Ссылка"
-            minlength="2"
-            maxlength="150"
-            required>
+            required
+          >
+          <span
+            class="popup__field-error"
+            id="link-error">
+          </span>
           </label>
         <button
           type="submit"
           class="popup__save
-          popup__save-card">
+          popup__save-card
+          popup__button_disable">
           Создать
         </button>
       </form>
@@ -149,6 +174,7 @@
   </div>
   </section>
 
+  <script src="./scripts/validate.js"></script>
   <script src='./scripts/cards.js'></script>
   <script src='./scripts/index.js'></script>
 </body>

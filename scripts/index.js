@@ -19,6 +19,13 @@ const buttonClosePreview = document.querySelector('.popup__close-image');
 const previewTitle = document.querySelector('.popup__image-title');
 const formElementAdd = document.querySelector('.popup__form_add');
 
+
+function thOverlay(event) {
+	return event.target.classList.contains("popup__image") || event.target.classList.contains("popup__opened");
+}
+
+
+
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
 }
