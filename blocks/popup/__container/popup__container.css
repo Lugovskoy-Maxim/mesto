@@ -4,7 +4,6 @@
   position: relative;
   max-width: calc(430px - 34px*2);
   justify-content: center;
-  text-align: center;
   color: black;
   padding: 34px 34px 37px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
