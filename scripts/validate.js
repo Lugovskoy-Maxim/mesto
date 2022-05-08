@@ -1,17 +1,15 @@
-function hasInvalidInput (inputList) {
-  return inputList.some((inputElement) => {
-  return !inputElement.validity.valid;
-});
+function hasInvalidInput(inputList) { //я не понял комментарий в ревью как сделать лучше, по этому пока оставил так =)
+  return inputList.some((inputElement) => !inputElement.validity.valid);
 }
 
-function toggleButton (inputList, buttonElement, config) {
+function toggleButton(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
-  buttonElement.classList.add(config.inactiveButtonClass);
-  buttonElement.setAttribute('disabled' , 'disabled');
-} else {
-  buttonElement.classList.remove(config.inactiveButtonClass);
-  buttonElement.removeAttribute('disabled');
-}
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', 'disabled');
+  } else {
+    buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled');
+  }
 }
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -48,7 +46,7 @@ const setEventListeners = (formElement, config) => {
   });
 };
 
-function disabledButton (formElement, config) {
+function disabledButton(formElement, config) {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
   buttonElement.classList.add(config.inactiveButtonClass);
   buttonElement.setAttribute('disabled', 'disabled');
@@ -62,14 +60,7 @@ const enableValidation = (config) => {
       disabledButton(formElement, config);
     });
     setEventListeners(formElement, config);
-});
+  });
 };
 
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__button_disable',
-  inputErrorClass: 'popup__field',
-  errorClass: 'popup__field-error'
-});
+enableValidation(formConfig);

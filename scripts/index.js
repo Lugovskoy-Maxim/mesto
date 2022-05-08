@@ -2,7 +2,7 @@ const profileNameEdit = document.querySelector('.profile__edit');
 const buttonCloseProfile = document.querySelector('.popup__close-profile');
 const popupProfile = document.querySelector('.popup_type_profile');
 const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('#name') ;
+const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__caption');
@@ -18,28 +18,25 @@ const popupPreviewImage = document.querySelector('.popup__image');
 const buttonClosePreview = document.querySelector('.popup__close-image');
 const previewTitle = document.querySelector('.popup__image-title');
 const formElementAdd = document.querySelector('.popup__form_add');
-
-
-
-// закрыте по оверлею
-popupPreview.addEventListener("click", closeOverlay);
-popupAdd.addEventListener("click", closeOverlay);
-popupProfile.addEventListener("click", closeOverlay);
-
+const formConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__button_disable',
+  inputErrorClass: 'popup__field',
+  errorClass: 'popup__field-error'
+}
 
 function isOverlay(event) {
-	return event.target.classList.contains("popupPreview") || event.target.classList.contains("popup_opened");
+  return event.target.classList.contains("popupPreview") || event.target.classList.contains("popup_opened");
 }
-
 
 function closeOverlay(event) {
-	if (isOverlay(event)) {
-		closePopup(event.target);
-	}
+  if (isOverlay(event)) {
+    closePopup(event.target);
+  }
 }
 
-
-// закрыте по ESC
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscUp);
@@ -57,19 +54,13 @@ function handleEscUp(event) {
     closePopup(openedPopup);
   }
 }
-//
 
-profileNameEdit.addEventListener('click', openPopupProfile);
-
-function closePopup(popupName){
+function closePopup(popupName) {
   popupName.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscUp);
 }
 
-buttonCloseProfile.addEventListener('click', () => {closePopup(popupProfile)});
-formElement.addEventListener('submit', handleFormSubmitProfile);
-
-function handleFormSubmitProfile (evt) {
+function handleFormSubmitProfile(evt) {
   evt.preventDefault();
   const nameValue = nameInput.value;
   const jobValue = jobInput.value;
@@ -79,8 +70,6 @@ function handleFormSubmitProfile (evt) {
   closePopup(popupProfile);
 }
 
-popupAddButton.addEventListener('click', () => {openPopup(popupAdd)});
-buttonCloseCard.addEventListener('click', () => {closePopup(popupAdd)});
 function handleFormSubmitAdd(evt) {
   evt.preventDefault();
   addCard(cardsTitleInput.value, cardsimageInput.value);
@@ -88,22 +77,17 @@ function handleFormSubmitAdd(evt) {
   formElementAdd.reset();
 }
 
-formElementAdd.addEventListener('submit', handleFormSubmitAdd);
-buttonClosePreview.addEventListener('click', () => { closePopup(popupPreview) });
-
 initialCards.forEach(function (card) {
   renderImage(card.name, card.link);
 });
 
 function renderImage(names, links) {
   const cardsResult = getCard(names, links);
-
   listElements.prepend(cardsResult);
 }
 
 function addCard(name, link) {
   const newCard = getCard(name, link);
-
   listElements.prepend(newCard);
 }
 
@@ -136,3 +120,14 @@ function getCard(name, link) {
 
   return templateCard;
 }
+
+popupPreview.addEventListener("click", closeOverlay);
+popupAdd.addEventListener("click", closeOverlay);
+popupProfile.addEventListener("click", closeOverlay);
+formElementAdd.addEventListener('submit', handleFormSubmitAdd);
+buttonClosePreview.addEventListener('click', () => closePopup(popupPreview));
+popupAddButton.addEventListener('click', () => openPopup(popupAdd));
+buttonCloseCard.addEventListener('click', () => closePopup(popupAdd));
+buttonCloseProfile.addEventListener('click', () => closePopup(popupProfile));
+formElement.addEventListener('submit', handleFormSubmitProfile);
+profileNameEdit.addEventListener('click', openPopupProfile);
