@@ -20,14 +20,38 @@ const previewTitle = document.querySelector('.popup__image-title');
 const formElementAdd = document.querySelector('.popup__form_add');
 
 
-function thOverlay(event) {
-	return event.target.classList.contains("popup__image") || event.target.classList.contains("popup__opened");
+
+// закрыте по оверлею
+popupPreview.addEventListener("click", closeImageOverlay);
+popupAdd.addEventListener("click", closeOtherOverlay);
+popupProfile.addEventListener("click", closeOtherOverlay);
+
+
+function isOverlay(event) {
+	return event.target.classList.contains("popupPreview") || event.target.classList.contains("popup_opened");
+}
+
+function closeImageOverlay(event) {
+	if (isOverlay(event)) {
+		closePopupImage();
+	}
+}
+
+function closePopupImage () {
+  popupPreview.classList.remove('popup_opened');
+}
+
+function closeOtherOverlay(event) {
+	if (isOverlay(event)) {
+		closePopup(event.target);
+	}
 }
 
 
-
+// закрыте по ESC
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscUp);
 }
 
 function openPopupProfile() {
@@ -36,10 +60,19 @@ function openPopupProfile() {
   openPopup(popupProfile);
 }
 
+function handleEscUp(event) {
+  if (event.key === 'Escape') {
+    const openedPopup = document.querySelector(".popup_opened")
+    closePopup(openedPopup);
+  }
+}
+//
+
 profileNameEdit.addEventListener('click', openPopupProfile);
 
 function closePopup(popupName){
   popupName.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscUp);
 }
 
 buttonCloseProfile.addEventListener('click', () => {closePopup(popupProfile)});
