@@ -22,26 +22,17 @@ const formElementAdd = document.querySelector('.popup__form_add');
 
 
 // закрыте по оверлею
-popupPreview.addEventListener("click", closeImageOverlay);
-popupAdd.addEventListener("click", closeOtherOverlay);
-popupProfile.addEventListener("click", closeOtherOverlay);
+popupPreview.addEventListener("click", closeOverlay);
+popupAdd.addEventListener("click", closeOverlay);
+popupProfile.addEventListener("click", closeOverlay);
 
 
 function isOverlay(event) {
 	return event.target.classList.contains("popupPreview") || event.target.classList.contains("popup_opened");
 }
 
-function closeImageOverlay(event) {
-	if (isOverlay(event)) {
-		closePopupImage();
-	}
-}
 
-function closePopupImage () {
-  popupPreview.classList.remove('popup_opened');
-}
-
-function closeOtherOverlay(event) {
+function closeOverlay(event) {
 	if (isOverlay(event)) {
 		closePopup(event.target);
 	}
