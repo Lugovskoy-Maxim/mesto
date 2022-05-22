@@ -32,7 +32,7 @@ export default class Card {
 
   _delClickHandler() {
     // удаляю элемент(карточку).
-    this._element = null;
+    this._element.remove(); // если ставлю = null не удаляется элемент
   }
 
   _likeCard() {
