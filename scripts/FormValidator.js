@@ -5,8 +5,12 @@ export default class FormValidator {
   constructor(data, form) {
     this._data = data;
     this._form = form;
-    this._buttonElement = this._form.querySelector(this._data.submitButtonSelector);
-    this._inputList = Array.from(this._form.querySelectorAll(this._data.inputSelector));
+    this._buttonElement = this._form.querySelector(
+      this._data.submitButtonSelector
+    );
+    this._inputList = Array.from(
+      this._form.querySelectorAll(this._data.inputSelector)
+    );
   }
 
   _hasInvalidInput() {
@@ -16,10 +20,10 @@ export default class FormValidator {
   _toggleButton() {
     if (this._hasInvalidInput(this._inputList)) {
       this._buttonElement.classList.add(this._data.inactiveButtonClass);
-      this._buttonElement.setAttribute('disabled', true);
+      this._buttonElement.setAttribute("disabled", true);
     } else {
       this._buttonElement.classList.remove(this._data.inactiveButtonClass);
-      this._buttonElement.removeAttribute('disabled', false);
+      this._buttonElement.removeAttribute("disabled", false);
     }
   }
 
@@ -28,14 +32,14 @@ export default class FormValidator {
     //inputElement.classList.add(this._data.inputErrorClass);// вешает класс на инпут а не на спан
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._data.inputErrorClass);
-  };
+  }
 
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     //inputElement.classList.remove(this._data.inputErrorClass);
     errorElement.classList.remove(this._data.inputErrorClass);
-    errorElement.textContent = '';
-  };
+    errorElement.textContent = "";
+  }
 
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
@@ -43,9 +47,10 @@ export default class FormValidator {
     } else {
       this._hideInputError(inputElement);
     }
-  };
+  }
 
-  resetValidation() { //без перезагрузки можно добавлять пустые карточки после успешного создания первой
+  resetValidation() {
+    //без перезагрузки можно добавлять пустые карточки после успешного создания первой
     this._toggleButton();
     this._inputList.forEach((inputELement) => {
       this._hideInputError(inputELement);
@@ -55,10 +60,10 @@ export default class FormValidator {
   enableValidation() {
     this._toggleButton(this._inputList);
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', () => {
+      inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
         this._toggleButton();
       });
     });
-  };
-};
+  }
+}

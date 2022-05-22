@@ -15,6 +15,7 @@
 
 **Ссылка на проект**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1);
-
 * Проект доступен на [GitHub Pages](https://lugovskoy-maxim.github.io/mesto/).
+
+**Превью**
+<img align="center" alt="Preview" src="https://pictures.s3.yandex.net/resources/Screen_Shot_2020-04-06_at_6.36.00_PM_1589715787.png" />
