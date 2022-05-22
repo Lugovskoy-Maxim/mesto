@@ -25,7 +25,7 @@ import {
   buttonCloseCard,
   buttonClosePreview,
   formElementAdd,
-} from "./const.js";
+} from "./сonst.js";
 
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
 const formValidatorCard = new FormValidator(formConfig, cardForm);
