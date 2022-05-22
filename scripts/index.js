@@ -108,6 +108,7 @@ function handleFormSubmitAdd(evt) {
   console.log(data);
   closePopup(popupAdd);
   formElementAdd.reset();
+  formValidatorCard.resetValidation();
   listElements.prepend(createNewCard(data));
 }
 

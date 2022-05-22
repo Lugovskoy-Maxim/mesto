@@ -45,6 +45,13 @@ export default class FormValidator {
     }
   };
 
+  resetValidation() { //без перезагрузки можно добавлять пустые карточки после успешного создания первой
+    this._toggleButton();
+    this._inputList.forEach((inputELement) => {
+      this._hideInputError(inputELement);
+    });
+  }
+
   enableValidation() {
     this._toggleButton(this._inputList);
     this._inputList.forEach((inputElement) => {
