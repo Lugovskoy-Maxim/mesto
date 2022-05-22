@@ -42,7 +42,7 @@ export default class Card {
     this._element.querySelector('.element__like').addEventListener('click', () => this._likeCard()); //слушаю лайк.
     this._element.querySelector('.element__cards-remove').addEventListener('click', () => this._delClickHandler()); //слушатель удаления карточки
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link);
+    this._handleCardClick(this._name, this._link);
     });
   }
 }

@@ -63,4 +63,4 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(formConfig);
+ enableValidation(formConfig);

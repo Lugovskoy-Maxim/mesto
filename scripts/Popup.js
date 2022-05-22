@@ -1,43 +1,42 @@
 export default class Popup {
+  _popupSelector;
+
   constructor(popupSelector) {
     this._popupSelector = popupSelector;
-    this._handleEscUp = handleEscUp;
+    this._handleEscClose = this._handleEscClose.bind(this); // нашел в гугле, как работает не совсем понял, но работает. Я делал стрелочные функции но не получилось)
+    this._closeOverlay = this._closeOverlay.bind(this);
   }
 
   openPopup() {
     this._popupSelector.classList.add('popup_opened');
-    docement.addEventListener('keydown', this._handleEscUp);
+    this._setEventListener();
   }
 
   closePopup() {
     this._popupSelector.classList.remove('popup_opened');
-    document.removeEventListener('keydown', this._handleEscUp);
+    document.removeEventListener('keyup', this._handleEscClose);
+    this._popupSelector.removeEventListener('click', this._closeOverlay);
   }
 
-  _handleFormSubmit() {
+  _handleEscClose(e) {
+    if (e.key === 'Escape') {
+      this.closePopup();
+  }
+}
 
+  _isNotModal(e) {
+    return e.target.classList.contains("popupPreview") || e.target.classList.contains("popup_opened") || e.target.classList.contains("popup__close");
   }
 
-  _handleEscUp(event) {
-    if (event.key === 'Escape') {
+  _closeOverlay(e) {
+    if (this._isNotModal(e)) {
       this.closePopup();
     }
   }
 
-  _handleEscClose(evt) {
-    if (evt.key === 'Escape') {
-      this.closePopup();
-    }
+  _setEventListener() {
+    document.addEventListener('keyup',  this._handleEscClose);
+    this._popupSelector.addEventListener('click', this._closeOverlay);
   }
 
-  _isOverlay(event) {
-    return event.target.classList.contains("popupPreview") || event.target.classList.contains("popup_opened");
-  }
-
-  _closeOverlay(event) {
-    if (this._isOverlay(event)) {
-      this.closePopup(event.target);
-    }
-
-  }
 }

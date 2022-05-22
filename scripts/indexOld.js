@@ -1,7 +1,7 @@
 const profileNameEdit = document.querySelector('.profile__edit');
 const buttonCloseProfile = document.querySelector('.popup__close-profile');
 const popupProfile = document.querySelector('.popup_type_profile');
-const formElement = document.querySelector('.popup__form');
+const popupForm = document.querySelector('.popup__form');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const profileName = document.querySelector('.profile__name');
@@ -143,5 +143,5 @@ buttonClosePreview.addEventListener('click', () => closePopup(popupPreview));
 popupAddButton.addEventListener('click', () => openPopup(popupAdd));
 buttonCloseCard.addEventListener('click', () => closePopup(popupAdd));
 buttonCloseProfile.addEventListener('click', () => closePopup(popupProfile));
-formElement.addEventListener('submit', handleFormSubmitProfile);
+this._form.addEventListener('submit', handleFormSubmitProfile);
 profileNameEdit.addEventListener('click', openPopupProfile);
