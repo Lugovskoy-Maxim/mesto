@@ -25,9 +25,7 @@ export default class Popup {
   }
 
   _isNotModal(e) {
-    return (
-      e.target.classList.contains("popup_opened")
-    );
+    return e.target.classList.contains("popup_opened");
   }
 
   _closeOverlay(e) {
