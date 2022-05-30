@@ -1,7 +1,8 @@
 //import Popup from './Popup.js';
-import Card from "./Card.js";
-import initialCards from "./initialCards.js";
-import FormValidator from "./FormValidator.js";
+import '../styles/index.css';
+import Card from "../scripts/Card.js";
+import initialCards from "../scripts/initialCards.js";
+import FormValidator from "../scripts/FormValidator.js";
 import {
   previewTitle,
   listElements,
@@ -25,7 +26,7 @@ import {
   buttonCloseCard,
   buttonClosePreview,
   formElementAdd,
-} from "./const.js";
+} from "../scripts/const.js";
 
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
 const formValidatorCard = new FormValidator(formConfig, cardForm);
