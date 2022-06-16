@@ -1,12 +1,12 @@
 .popup__field-error {
   position: absolute;
-  top: 5px;
+  padding-top: 5px;
   opacity: 1;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #FF0000;
   width: 358px;
+  max-height: 12px;
 }

@@ -1,7 +1,4 @@
 export default class FormValidator {
-  _data; //formConfig
-  _form; //formElement
-
   constructor(data, form) {
     this._data = data;
     this._form = form;
@@ -29,14 +26,12 @@ export default class FormValidator {
 
   _showInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-    //inputElement.classList.add(this._data.inputErrorClass);// вешает класс на инпут а не на спан
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._data.inputErrorClass);
   }
 
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-    //inputElement.classList.remove(this._data.inputErrorClass);
     errorElement.classList.remove(this._data.inputErrorClass);
     errorElement.textContent = "";
   }
@@ -50,7 +45,6 @@ export default class FormValidator {
   }
 
   resetValidation() {
-    //без перезагрузки можно добавлять пустые карточки после успешного создания первой
     this._toggleButton();
     this._inputList.forEach((inputELement) => {
       this._hideInputError(inputELement);

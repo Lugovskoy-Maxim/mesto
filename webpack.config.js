@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // подклю�
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');// подключите к проекту mini-css-extract-plugin
 module.exports = {
   // module.exports — это синтаксис экспорта в Node.js
-  entry: { main: "./src/index.js" }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
+  entry: { main: "./src/pages/index.js" }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
   output: {
     // указали в какой файл будет собираться весь js и дали ему имя
     path: path.resolve(__dirname, "dist"), //* переписали точку выхода, используя утилиту path
@@ -34,15 +34,6 @@ module.exports = {
         // регулярное выражение, которое ищет все файлы с такими расширениями
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource'
-      },
-      {
-        // применять это правило только к CSS-файлам
-        test: /\.css$/,
-        // при обработке этих файлов нужно использовать
-        // MiniCssExtractPlugin.loader и css-loader
-        use: [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader'
-        }]
       },
       {
         // применять это правило только к CSS-файлам
