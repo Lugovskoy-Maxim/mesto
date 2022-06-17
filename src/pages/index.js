@@ -4,6 +4,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Sections.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import "./index.css";
 import {
   popupAdd,
@@ -15,7 +16,8 @@ import {
   profileForm,
   nameInput,
   jobInput,
-} from "../components/constant.js";
+  popupPreview,
+} from "../Utils/constant.js";
 
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
 const formValidatorCard = new FormValidator(formConfig, cardForm);
@@ -24,12 +26,23 @@ formValidatorCard.enableValidation();
 
 const popupEdit = new PopupWithForm(popupProfile, handleFormSubmitProfile);
 const popupAddCard = new PopupWithForm(popupAdd, handleFormSubmitCard);
+const popupImage = new PopupWithImage(popupPreview, title, link);
 
-const generateCard = new Section(initialCards, createCard, ".elements");
-generateCard.rendered();
+const cardElement = new Section(initialCards, renderer, ".elements");
+
+function renderer(item) {
+  cardElement.insertCard(createCard(item));
+}
+
+cardElement.rendered();
+
+function handleCardClick(title, link) {
+  popupImage.openPopup(title, link);
+  popupImage.setEventListener();
+}
 
 function createCard(data) {
-  const card = new Card(data, ".cards-template"); //handleCardClick(name, link)
+  const card = new Card(data, ".cards-template", handleCardClick);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -46,13 +59,14 @@ function handleFormSubmitProfile(data) {
 }
 
 function handleFormSubmitCard(data) {
-  generateCard.insertCard(createCard(data));
+  cardElement.insertCard(createCard(data));
   popupAddCard.closePopup();
 }
 
 popupAddButton.addEventListener("click", () => {
   formValidatorCard.resetValidation();
   popupAddCard.openPopup();
+  popupAddCard.setEventListener();
 });
 
 profileNameEdit.addEventListener("click", () => {
@@ -61,5 +75,5 @@ profileNameEdit.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
   jobInput.value = userData.job;
-
+  popupEdit.setEventListener();
 });
