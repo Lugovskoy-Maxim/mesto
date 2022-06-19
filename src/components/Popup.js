@@ -1,7 +1,7 @@
 export default class Popup {
   constructor(popupSelector, handleFormSubmit) {
     this._popupSelector = popupSelector;
-    this._handleFormSubmit= handleFormSubmit;
+    this._handleFormSubmit = handleFormSubmit;
     this.handleEscClose = this.handleEscClose.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
   }

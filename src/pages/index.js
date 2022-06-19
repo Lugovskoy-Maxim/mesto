@@ -37,7 +37,6 @@ cardElement.rendered();
 
 function handleCardClick(title, link) {
   popupImage.openPopup(title, link);
-
 }
 
 function createCard(data) {
