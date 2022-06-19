@@ -26,8 +26,7 @@ formValidatorCard.enableValidation();
 
 const popupEdit = new PopupWithForm(popupProfile, handleFormSubmitProfile);
 const popupAddCard = new PopupWithForm(popupAdd, handleFormSubmitCard);
-const popupImage = new PopupWithImage(popupPreview, title, link);
-
+const popupImage = new PopupWithImage(popupPreview);
 const cardElement = new Section(initialCards, renderer, ".elements");
 
 function renderer(item) {
@@ -38,7 +37,7 @@ cardElement.rendered();
 
 function handleCardClick(title, link) {
   popupImage.openPopup(title, link);
-  popupImage.setEventListener();
+
 }
 
 function createCard(data) {
@@ -66,7 +65,6 @@ function handleFormSubmitCard(data) {
 popupAddButton.addEventListener("click", () => {
   formValidatorCard.resetValidation();
   popupAddCard.openPopup();
-  popupAddCard.setEventListener();
 });
 
 profileNameEdit.addEventListener("click", () => {
@@ -75,5 +73,8 @@ profileNameEdit.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
   jobInput.value = userData.job;
-  popupEdit.setEventListener();
 });
+
+popupAddCard.setEventListener();
+popupEdit.setEventListener();
+popupImage.setEventListener();
