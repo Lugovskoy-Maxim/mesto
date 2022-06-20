@@ -7,16 +7,13 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import "./index.css";
 import {
-  popupAdd,
   profileNameEdit,
   popupAddButton,
-  popupProfile,
   formConfig,
   cardForm,
   profileForm,
   nameInput,
   jobInput,
-  popupPreview,
 } from "../Utils/constant.js";
 
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
