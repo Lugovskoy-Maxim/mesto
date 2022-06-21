@@ -1,8 +1,8 @@
 .popup__container {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   position: relative;
-  max-width: calc(430px - 34px*2);
+  max-width: calc(430px - 34px * 2);
   justify-content: center;
   color: black;
   padding: 34px 34px 37px;
@@ -11,8 +11,7 @@
 
 @media (max-width: 500px) {
   .popup__container {
-    width: calc(282px - 22px*2);
+    width: calc(282px - 22px * 2);
     padding: 25px 22px 25px;
-
   }
 }

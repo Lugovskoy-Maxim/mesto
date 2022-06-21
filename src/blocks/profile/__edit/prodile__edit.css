@@ -3,13 +3,13 @@
   background: url(../../../Images/Vectoredit.svg) no-repeat;
   background-position: center;
   background-size: 10px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   box-sizing: border-box;
   width: 24px;
   height: 24px;
   background-color: transparent;
   cursor: pointer;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .profile__edit:hover {
@@ -22,5 +22,4 @@
     width: 18px;
     height: 18px;
   }
-
 }

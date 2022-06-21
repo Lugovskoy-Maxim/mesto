@@ -21,7 +21,10 @@ const formValidatorCard = new FormValidator(formConfig, cardForm);
 formValidatorProfile.enableValidation();
 formValidatorCard.enableValidation();
 
-const popupEdit = new PopupWithForm(".popup_type_profile", handleFormSubmitProfile);
+const popupEdit = new PopupWithForm(
+  ".popup_type_profile",
+  handleFormSubmitProfile
+);
 const popupAddCard = new PopupWithForm(".popup_type_add", handleFormSubmitCard);
 const popupImage = new PopupWithImage(".popup_type_photo");
 const cardElement = new Section(initialCards, renderer, ".elements");

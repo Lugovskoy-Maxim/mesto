@@ -6,11 +6,11 @@
   background-size: cover;
   width: 18px;
   height: 19px;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
   border: none;
   cursor: pointer;
 }
 
 .element__cards-remove:hover {
-opacity: 0.8;
+  opacity: 0.8;
 }

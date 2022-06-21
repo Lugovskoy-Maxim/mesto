@@ -4,7 +4,7 @@
   height: 33px;
   width: 142px;
   cursor: pointer;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .header__logo:hover {
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 910px) {
-  .header__logo{
+  .header__logo {
     margin-left: 40px;
   }
 }

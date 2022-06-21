@@ -1,7 +1,7 @@
 const path = require("path"); // подключаем path к конфигу вебпак, require — это как import только в Node.js. Опять же, такое подключение файла мы будем использовать только в конфиге «Вебпака», потому что этот файл запускается в Node.js. Во всех остальных файлах мы по-прежнему будем пользоваться директивой import.
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // подключите плагин
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // подключили плагин
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');// подключите к проекту mini-css-extract-plugin
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // подключите к проекту mini-css-extract-plugin
 module.exports = {
   // module.exports — это синтаксис экспорта в Node.js
   entry: { main: "./src/pages/index.js" }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
@@ -33,19 +33,22 @@ module.exports = {
       {
         // регулярное выражение, которое ищет все файлы с такими расширениями
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
-        type: 'asset/resource'
+        type: "asset/resource",
       },
       {
         // применять это правило только к CSS-файлам
         test: /\.css$/,
         // при обработке этих файлов нужно использовать
         // MiniCssExtractPlugin.loader и css-loader
-        use: [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: { importLoaders: 1 }
-        },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 },
+          },
           // Добавьте postcss-loader
-        'postcss-loader']
+          "postcss-loader",
+        ],
       },
     ],
   },
@@ -54,6 +57,6 @@ module.exports = {
       template: "./src/index.html", // путь к файлу index.html
     }),
     new CleanWebpackPlugin(), // использовали плагин
-    new MiniCssExtractPlugin() // подключение плагина для объединения файлов
+    new MiniCssExtractPlugin(), // подключение плагина для объединения файлов
   ],
 };
