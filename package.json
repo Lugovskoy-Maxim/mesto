@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
+    "refactoring": "npm prettier --write",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
