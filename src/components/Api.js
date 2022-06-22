@@ -1,29 +1,29 @@
 export default class Api {
-  constructor(url, token){
-    this._url = url;
-    this._token = token;
+  constructor({baseUrl, headers}) {
+    this._baseUrl = baseUrl;
+    this._headers = headers
   }
 
-  getUserInfo(){
-    fetch(this._url+ "/users/me")
-    .then((res)=> {
-      if (res.ok)
-      return res.json()
-      })
+  getInitialCards() {
+    return fetch(this._baseUrl + '/cards', {
+      headers: this._headers
+    })
+    .then(this._checkResponse)
+  }
 
+  getUserData() {
+    return fetch(this._baseUrl + '/users/me', {
+    headers: this._headers
+    })
+    .then(this._checkResponse)
+  };
 
-
-
-
-
+  _checkResponse(res) {
+    if (res.ok) {
+        return res.json();
     }
-    return Pa
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  asdasd
-
-  as
-  dasdasd
-
-
+}
 

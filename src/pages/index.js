@@ -1,10 +1,11 @@
 import Card from "../components/Card.js";
-import initialCards from "../components/initialCards.js";
+//import initialCards from "../components/initialCards.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Sections.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import Api from "../components/Api.js";
 import "./index.css";
 import {
   profileNameEdit,
@@ -15,6 +16,45 @@ import {
   nameInput,
   jobInput,
 } from "../Utils/constant.js";
+
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-43',
+  headers: {
+    authorization: '73b17bd9-3a97-41a4-b24d-ab14544edf37',
+    'Content-Type': 'application/json'
+  }
+});
+
+
+Promise.all([api.getUserData(), api.getInitialCards()])
+ .then((data)=>{
+    userInfo.setUserInfo({
+     name: data[0].name,
+     job: data[0].about
+    });
+    console.log(data[0]._id);
+    userInfo.setUserAvatar(data[0].avatar);
+    getUserId(data[0]._id);
+    cardElement.rendered(data[1]);
+ })
+ .catch((err)=>{
+  console.log(`ошибка ${err}`); ;
+})
+
+
+function getUserId(id) { //передать в карточку что бы убрать корзину
+  const userToken = id;
+};
+
+
+
+
+
+
+
+
+
+
 
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
 const formValidatorCard = new FormValidator(formConfig, cardForm);
@@ -27,13 +67,11 @@ const popupEdit = new PopupWithForm(
 );
 const popupAddCard = new PopupWithForm(".popup_type_add", handleFormSubmitCard);
 const popupImage = new PopupWithImage(".popup_type_photo");
-const cardElement = new Section(initialCards, renderer, ".elements");
+const cardElement = new Section(renderer, ".elements");
 
 function renderer(item) {
   cardElement.insertCard(createCard(item));
 }
-
-cardElement.rendered();
 
 function handleCardClick(title, link) {
   popupImage.openPopup(title, link);
