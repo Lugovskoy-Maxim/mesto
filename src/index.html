@@ -113,7 +113,7 @@
     <section class="popup popup_type_add">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__form_add" name="newCardForm" novalidate>
+        <form class="popup__form popup__form_add" name="cardForm" novalidate>
           <label class="popup__field">
             <input
               type="text"
@@ -151,6 +151,35 @@
         ></button>
       </div>
     </section>
+
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_avatar" name="avatarForm" novalidate>
+          <label class="popup__field">
+            <input
+              type="url"
+              id="avatar-url"
+              name="avatar-url"
+              class="popup__input"
+              placeholder="Ссылка"
+              autocomplete="off"
+              required
+            />
+            <span class="popup__field-error" id="avatar-url-error"> </span>
+          </label>
+          <button type="submit" class="popup__save popup__save-avatar">
+            Сохранить
+          </button>
+        </form>
+        <button
+          type="button"
+          class="popup__close popup__close-card"
+          aria-label="Закрыть"
+        ></button>
+      </div>
+    </section>
+
 
     <section class="popup popup_type_photo">
       <div class="popup__container popup__image-container">

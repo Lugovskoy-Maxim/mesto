@@ -15,6 +15,7 @@ import {
   profileForm,
   nameInput,
   jobInput,
+  avatarForm,
 } from "../Utils/constant.js";
 
 const api = new Api({
@@ -55,11 +56,12 @@ function getUserId(id) { //передать в карточку что бы уб
 
 
 
-
+const formValidatorAvatar = new FormValidator(formConfig, avatarForm);
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
 const formValidatorCard = new FormValidator(formConfig, cardForm);
 formValidatorProfile.enableValidation();
 formValidatorCard.enableValidation();
+formValidatorAvatar.enableValidation();
 
 const popupEdit = new PopupWithForm(
   ".popup_type_profile",
