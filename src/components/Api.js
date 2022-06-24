@@ -27,7 +27,6 @@ export default class Api {
         about: data.job
       })
       })
-      .then(this._getResponseData)
   }
 
   setUserAvatar(data){
@@ -38,7 +37,6 @@ export default class Api {
         avatar: data.avatar_url
       })
       })
-      .then(this._getResponseData)
   }
 
 

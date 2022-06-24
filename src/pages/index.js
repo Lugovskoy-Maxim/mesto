@@ -111,7 +111,7 @@ function handleFormSubmitProfile(data) {
 }
 
 function renderLoading (statusLoading, popupName, text) {
-  if (statusLoading) {
+  if (!statusLoading) {
     document.querySelector(popupName).querySelector('.popup__save').textContent = text;
   } else {
     document.querySelector(popupName).querySelector('.popup__save').textContent = "Сохранение...";
