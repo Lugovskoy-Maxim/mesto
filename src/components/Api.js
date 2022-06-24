@@ -18,6 +18,30 @@ export default class Api {
     .then(this._checkResponse)
   };
 
+  setUserInfo(data) {
+    return fetch(this._baseUrl + '/users/me', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        about: data.job
+      })
+      })
+      .then(this._getResponseData)
+  }
+
+  setUserAvatar(data){
+    return fetch(this._baseUrl + '/users/me/avatar', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.avatar_url
+      })
+      })
+      .then(this._getResponseData)
+  }
+
+
   _checkResponse(res) {
     if (res.ok) {
         return res.json();

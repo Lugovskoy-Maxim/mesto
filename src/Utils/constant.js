@@ -5,6 +5,10 @@ const avatarForm = document.forms.avatarForm;
 const cardForm = document.forms.cardForm;
 const nameInput = document.querySelector("#name");
 const jobInput = document.querySelector("#job");
+const profileEditAvatar = document.querySelector(".profile__avatar-button");
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__caption");
+const profileAvatar = document.querySelector(".profile__avatar");
 const formConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -23,4 +27,8 @@ export {
   profileForm,
   nameInput,
   jobInput,
+  profileEditAvatar,
+  profileName,
+  profileAbout,
+  profileAvatar,
 };
