@@ -1,5 +1,6 @@
 const profileNameEdit = document.querySelector(".profile__edit");
 const popupAddButton = document.querySelector(".profile__add");
+const popupRemoveCardButton = document.querySelector(".popup_type_remove");
 const profileForm = document.forms.editProfileForm;
 const avatarForm = document.forms.avatarForm;
 const cardForm = document.forms.cardForm;
@@ -31,4 +32,5 @@ export {
   profileName,
   profileAbout,
   profileAvatar,
+  popupRemoveCardButton,
 };

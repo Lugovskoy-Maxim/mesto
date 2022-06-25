@@ -6,9 +6,10 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
-    "refactoring": "npm prettier --write",
+    "refactoring": "npx prettier --write",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
     "cssnano": "^5.1.12",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.0",
     "prettier": "2.7.1",
@@ -39,5 +42,8 @@
   },
   "dependencies": {
     "core-js": "^3.23.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

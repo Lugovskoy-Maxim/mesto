@@ -16,8 +16,9 @@
   <main class="content">
     <section class="profile">
       <button class="profile__avatar-button" name="edit-avatar" id="edit-avatar" type="button"
-        aria-label="Редактировать аватар"> <img src="" alt="Аватар пользователя"
-          class="profile__avatar" /></button>
+        aria-label="Редактировать аватар">
+        <img src="" alt="Аватар пользователя" class="profile__avatar" />
+      </button>
       <div class="profile__info">
         <div class="profile__top-title">
           <h1 class="profile__name"></h1>
@@ -41,8 +42,9 @@
       <button type="button" class="element__cards-remove" aria-level="Удалить"></button>
       <div class="element__description">
         <h2 class="element__title"></h2>
-        <button type="button" class="element__like" aria-level="Нравиться!"></button>
-        <p class="element__like-counter"></p>
+        <div class="element__like_count"><button type="button" class="element__like" aria-level="Нравиться!"></button>
+          <p class="element__like-counter">0</p>
+        </div>
       </div>
     </li>
   </template>
@@ -106,10 +108,21 @@
           Сохранить
         </button>
       </form>
-      <button type="button" class="popup__close popup__close-card" aria-label="Закрыть"></button>
+      <button type="button" class="popup__close popup__close-avatar" aria-label="Закрыть"></button>
     </div>
   </section>
 
+  <section class="popup popup_type_remove">
+    <div class="popup__container">
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_remove" name="cardremove" novalidate>
+
+        <button type="submit" class="popup__save popup__cubmit">Да</button>
+      </form>
+      <button type="button" class="popup__close popup__remove-button" aria-label="Закрыть"></button>
+
+    </div>
+  </section>
 
   <section class="popup popup_type_photo">
     <div class="popup__container popup__image-container">
