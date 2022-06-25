@@ -18,8 +18,8 @@ export default class Api {
     return this._checkResponse(res);
   }
 
-  setUserInfo(data) {
-    return fetch(this._baseUrl + "/users/me", {
+  async setUserInfo(data) {
+    const res = await fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -27,6 +27,7 @@ export default class Api {
         about: data.job,
       }),
     });
+    return this._checkResponse(res);
   }
 
   async addCard(data) {
@@ -41,11 +42,12 @@ export default class Api {
     return this._checkResponse(res);
   }
 
-  deleteCard(id) {
-    return fetch(this._baseUrl + "/cards/" + id, {
+  async deleteCard(id) {
+    const res= await fetch(this._baseUrl + "/cards/" + id, {
       method: "DELETE",
       headers: this._headers,
     });
+    return this._checkResponse(res);
   }
 
   async setLikeCard(id) {
@@ -64,14 +66,15 @@ export default class Api {
     return this._checkResponse(res);
   }
 
-  setUserAvatar(data) {
-    return fetch(this._baseUrl + "/users/me/avatar", {
+  async setUserAvatar(data) {
+    const res = fetch(this._baseUrl + "/users/me/avatar", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar_url,
       }),
     });
+    return this._checkResponse(res);
   }
 
   _checkResponse(res) {
