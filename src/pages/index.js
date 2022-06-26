@@ -92,18 +92,6 @@ function createCard(data) {
   return cardElement;
 }
 
-function renderLoading(statusLoading, popupName, text) {
-  if (!statusLoading) {
-    document
-      .querySelector(popupName)
-      .querySelector(".popup__save").textContent = text;
-  } else {
-    document
-      .querySelector(popupName)
-      .querySelector(".popup__save").textContent = "Сохранение ...";
-  }
-}
-
 function handleLikeCardClick(data) {
   if (this._element.querySelector(".element__like_active")) {
     api
@@ -131,8 +119,7 @@ function handleRemoveCardClick(thisCard) {
 }
 
 function handleRemoveCardSubmit(thisCard) {
-  // передать готовую карточку и взять id
-  renderLoading(true, ".popup_type_remove", "Да");
+  popupRemoveCard.loading(true);
   api
     .deleteCard(thisCard._cardId)
     .then(() => {
@@ -145,12 +132,12 @@ function handleRemoveCardSubmit(thisCard) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      renderLoading(false, ".popup_type_remove", "Да");
+      popupRemoveCard.loading(false);
     });
 }
 
 function handleFormSubmitCard(data) {
-  renderLoading(true, ".popup_type_add", "Сохранить");
+  popupAddCard.loading(true);
   api
     .addCard(data)
     .then((res) => {
@@ -161,12 +148,12 @@ function handleFormSubmitCard(data) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      renderLoading(false, ".popup_type_add", "Сохранить");
+      popupAddCard.loading(false);
     });
 }
 
 function handleFormSubmitProfile(data) {
-  renderLoading(true, ".popup_type_profile", "Сохранить");
+  popupEdit.loading(true);
   api
     .setUserInfo(data)
     .then((res) => {
@@ -177,26 +164,24 @@ function handleFormSubmitProfile(data) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      renderLoading(false, ".popup_type_profile", "Сохранить");
+      popupEdit.loading(false);
     });
 }
 
 function handleFormSubmitAvatar(data) {
-  renderLoading(true, ".popup_type_avatar", "Сохранить");
+  popupAvatar.loading(true);
   api
     .setUserAvatar(data)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
-      popupEdit.closePopup();
+      popupAvatar.closePopup();
     })
     .catch((err) => {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      renderLoading(false, ".popup_type_avatar", "Сохранить");
+      popupAvatar.loading(false);
     });
-
-  popupAvatar.closePopup();
 }
 
 profileEditAvatar.addEventListener("click", () => {

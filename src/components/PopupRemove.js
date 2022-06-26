@@ -4,11 +4,20 @@ export default class PopupRemove extends Popup {
     super(popupSelector);
     this._handleRemoveSubmit = handleRemoveSubmit;
     this._popupForm = this._popupContainer.querySelector(".popup__form");
+    this._submitButton = this._popupForm.querySelector('.popup__save');
   }
 
   openPopup(thisCard) {
     this._thisCard = thisCard;
     super.openPopup();
+  }
+
+  loading(status){
+    if(!status) {
+      this._submitButton.textContent = "Да"
+    }else {
+      this._submitButton.textContent = "Удаление..."
+    }
   }
 
   setEventListener() {
