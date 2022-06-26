@@ -15,9 +15,9 @@ export default class Card {
     this._handleCardClick = handleCardClick;
     this._userId = userId;
     this._owner = data.owner;
-    this._handleRemoveCardCkick = handleRemoveCardClick;
+    this._handleRemoveCardCkick = handleRemoveCardClick.bind(this);
     this._cardId = data._id;
-    this._handleLikeCardClick = handleLikeCardClick;
+    this._handleLikeCardClick = handleLikeCardClick.bind(this);
   }
 
   _getTemplate() {
@@ -80,7 +80,7 @@ export default class Card {
     this._element
       .querySelector(".element__cards-remove")
       .addEventListener("click", () => {
-        this._handleRemoveCardCkick(this._cardId);
+        this._handleRemoveCardCkick(this);
       });
     this._elementImage.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);

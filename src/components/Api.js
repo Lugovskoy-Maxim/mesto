@@ -67,13 +67,13 @@ export default class Api {
   }
 
   async setUserAvatar(data) {
-    const res = fetch(this._baseUrl + "/users/me/avatar", {
+    const res = await fetch(this._baseUrl + "/users/me/avatar", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar_url,
       }),
-    });
+    })
     return this._checkResponse(res);
   }
 

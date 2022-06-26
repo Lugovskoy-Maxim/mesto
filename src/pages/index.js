@@ -127,15 +127,18 @@ function handleLikeCardClick(data) {
   }
 }
 
-function handleRemoveCardClick(cardId) {
-  popupRemoveCard.openPopup();
-  popupRemoveCard._submitRemove(cardId);
+function handleRemoveCardClick(thisCard) {
+  popupRemoveCard.openPopup(thisCard);
 }
 
-function handleRemoveCardSubmit(cardId) {
+function handleRemoveCardSubmit(thisCard) {
+  // передать готовую карточку и взять id
   renderLoading(true, ".popup_type_remove", "Да");
   api
-    .deleteCard(cardId)
+    .deleteCard(thisCard._cardId)
+    .then(() => {
+      thisCard.deleteCard();
+    })
     .then(() => {
       popupRemoveCard.closePopup();
     })
@@ -152,10 +155,7 @@ function handleFormSubmitCard(data) {
   api
     .addCard(data)
     .then((res) => {
-      console.log(res);
-      cardElement.insertCard(createCard(res)); // не добавляется сразу нужны костыли
-    })
-    .then(() => {
+      cardElement.addNewCard(createCard(res));
       popupAddCard.closePopup();
     })
     .catch((err) => {
@@ -172,11 +172,8 @@ function handleFormSubmitProfile(data) {
     .setUserInfo(data)
     .then((res) => {
       userInfo.setUserInfo(res);
-      return res.json();
-    })
-    .then((data) => {
-      profileName.textContent = data.name;
-      profileAbout.textContent = data.about;
+      profileName.textContent = res.name;
+      profileAbout.textContent = res.about;
       popupEdit.closePopup();
     })
     .catch((err) => {
@@ -193,10 +190,7 @@ function handleFormSubmitAvatar(data) {
     .setUserAvatar(data)
     .then((res) => {
       userInfo.setUserAvatar(res);
-      return res.json();
-    })
-    .then((data) => {
-      profileAvatar.src = data.avatar;
+      profileAvatar.src = res.avatar;
       popupEdit.closePopup();
     })
     .catch((err) => {
@@ -208,10 +202,6 @@ function handleFormSubmitAvatar(data) {
 
   popupAvatar.closePopup();
 }
-
-popupRemoveCardButton.addEventListener("click", () => {
-  popupRemoveCard.openPopup();
-});
 
 profileEditAvatar.addEventListener("click", () => {
   formValidatorAvatar.resetValidation();

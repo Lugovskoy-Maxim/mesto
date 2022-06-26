@@ -6,22 +6,20 @@ export default class PopupRemove extends Popup {
     this._popupForm = this._popupContainer.querySelector(".popup__form");
   }
 
-  openPopup() {
+  openPopup = (thisCard) => {
+    this._thisCard = thisCard;
     super.openPopup();
-  }
+  };
 
   closePopup() {
     super.closePopup();
   }
 
-  _submitRemove(cardId){
+  setEventListener() {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleRemoveSubmit(cardId);
+      this._handleRemoveSubmit(this._thisCard); //после удалить карточку
     });
-  }
-
-  setEventListener() {
     super.setEventListener();
   }
 }
