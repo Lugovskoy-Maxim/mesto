@@ -4,11 +4,11 @@ export default class Api {
     this._headers = headers;
   }
 
-  async getInitialCards() {
-    const res = await fetch(this._baseUrl + "/cards", {
+  getInitialCards() {
+    return fetch(this._baseUrl + "/cards", {
       headers: this._headers,
-    });
-    return this._checkResponse(res);
+    })
+    .then((res) => this._checkResponse(res));
   }
 
   async getUserData() {
