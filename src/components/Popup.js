@@ -4,6 +4,7 @@ export default class Popup {
     this._handleFormSubmit = handleFormSubmit;
     this.handleEscClose = this.handleEscClose.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
+    this._buttonClose = this._popupContainer.querySelector(".popup__close");
   }
 
   openPopup() {
@@ -34,7 +35,6 @@ export default class Popup {
 
   setEventListener() {
     this._popupContainer.addEventListener("click", this.closeOverlay);
-    this._buttonClose = this._popupContainer.querySelector(".popup__close");
     this._buttonClose.addEventListener("click", () => this.closePopup());
   }
 }

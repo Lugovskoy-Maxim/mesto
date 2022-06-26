@@ -69,7 +69,7 @@ export default class Card {
     this._element.querySelector(".element__like-counter").textContent = counter;
   }
   deleteCard() {
-    this._element.remove();
+    this._element.remove(); // если использовать this._element = null карточка не удаляется. нужно разобраться
   }
 
   _setEventlistener() {

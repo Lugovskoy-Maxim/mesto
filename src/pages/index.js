@@ -14,13 +14,12 @@ import {
   cardForm,
   profileForm,
   nameInput,
-  jobInput,
+  aboutInput,
   avatarForm,
   profileEditAvatar,
   profileName,
   profileAbout,
   profileAvatar,
-  popupRemoveCardButton,
 } from "../Utils/constant.js";
 const formValidatorAvatar = new FormValidator(formConfig, avatarForm);
 const formValidatorProfile = new FormValidator(formConfig, profileForm);
@@ -39,7 +38,7 @@ const popupAvatar = new PopupWithForm(
 );
 const userInfo = new UserInfo({
   name: profileName,
-  job: profileAbout,
+  about: profileAbout,
   avatar: profileAvatar,
 });
 const popupAddCard = new PopupWithForm(".popup_type_add", handleFormSubmitCard);
@@ -57,7 +56,7 @@ Promise.all([api.getUserData(), api.getInitialCards()])
   .then((data) => {
     userInfo.setUserInfo({
       name: data[0].name,
-      job: data[0].about,
+      about: data[0].about,
     });
     userInfo.setUserAvatar(data[0].avatar);
     getUserId(data[0]._id);
@@ -81,7 +80,7 @@ function handleCardClick(title, link) {
 }
 
 function createCard(data) {
-  let card = new Card(
+  const card = new Card(
     data,
     ".cards-template",
     handleCardClick,
@@ -172,8 +171,6 @@ function handleFormSubmitProfile(data) {
     .setUserInfo(data)
     .then((res) => {
       userInfo.setUserInfo(res);
-      profileName.textContent = res.name;
-      profileAbout.textContent = res.about;
       popupEdit.closePopup();
     })
     .catch((err) => {
@@ -189,8 +186,7 @@ function handleFormSubmitAvatar(data) {
   api
     .setUserAvatar(data)
     .then((res) => {
-      userInfo.setUserAvatar(res);
-      profileAvatar.src = res.avatar;
+      userInfo.setUserAvatar(res.avatar);
       popupEdit.closePopup();
     })
     .catch((err) => {
@@ -218,7 +214,7 @@ profileNameEdit.addEventListener("click", () => {
   popupEdit.openPopup();
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
-  jobInput.value = userData.job;
+  aboutInput.value = userData.about;
 });
 
 popupAddCard.setEventListener();

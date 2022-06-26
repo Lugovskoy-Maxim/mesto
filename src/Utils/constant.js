@@ -5,7 +5,7 @@ const profileForm = document.forms.editProfileForm;
 const avatarForm = document.forms.avatarForm;
 const cardForm = document.forms.cardForm;
 const nameInput = document.querySelector("#name");
-const jobInput = document.querySelector("#job");
+const aboutInput = document.querySelector("#about");
 const profileEditAvatar = document.querySelector(".profile__avatar-button");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
@@ -27,7 +27,7 @@ export {
   cardForm,
   profileForm,
   nameInput,
-  jobInput,
+  aboutInput,
   profileEditAvatar,
   profileName,
   profileAbout,

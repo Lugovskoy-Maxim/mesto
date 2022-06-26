@@ -6,13 +6,9 @@ export default class PopupRemove extends Popup {
     this._popupForm = this._popupContainer.querySelector(".popup__form");
   }
 
-  openPopup = (thisCard) => {
+  openPopup(thisCard) {
     this._thisCard = thisCard;
     super.openPopup();
-  };
-
-  closePopup() {
-    super.closePopup();
   }
 
   setEventListener() {
