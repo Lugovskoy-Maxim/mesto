@@ -20,9 +20,9 @@ export default class PopupWithForm extends Popup {
     return listValue;
   }
 
-  loading(status){
+  loading(status, text){
     if(!status) {
-      this._submitButton.textContent = "Сохранить"
+      this._submitButton.textContent = text;
     }else {
       this._submitButton.textContent = "Сохранение..."
     }

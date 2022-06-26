@@ -119,7 +119,7 @@ function handleRemoveCardClick(thisCard) {
 }
 
 function handleRemoveCardSubmit(thisCard) {
-  popupRemoveCard.loading(true);
+  popupRemoveCard.loading(true, "Да");
   api
     .deleteCard(thisCard._cardId)
     .then(() => {
@@ -132,12 +132,12 @@ function handleRemoveCardSubmit(thisCard) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      popupRemoveCard.loading(false);
+      popupRemoveCard.loading(false, "Да");
     });
 }
 
 function handleFormSubmitCard(data) {
-  popupAddCard.loading(true);
+  popupAddCard.loading(true, "Сохранить");
   api
     .addCard(data)
     .then((res) => {
@@ -148,12 +148,12 @@ function handleFormSubmitCard(data) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      popupAddCard.loading(false);
+      popupAddCard.loading(false, "Сохранить");
     });
 }
 
 function handleFormSubmitProfile(data) {
-  popupEdit.loading(true);
+  popupEdit.loading(true, "Сохранить");
   api
     .setUserInfo(data)
     .then((res) => {
@@ -164,12 +164,12 @@ function handleFormSubmitProfile(data) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      popupEdit.loading(false);
+      popupEdit.loading(false, "Сохранить");
     });
 }
 
 function handleFormSubmitAvatar(data) {
-  popupAvatar.loading(true);
+  popupAvatar.loading(true, "Сохранить");
   api
     .setUserAvatar(data)
     .then((res) => {
@@ -180,7 +180,7 @@ function handleFormSubmitAvatar(data) {
       console.log(`ошибка ${err}`);
     })
     .finally(() => {
-      popupAvatar.loading(false);
+      popupAvatar.loading(false, "Сохранить");
     });
 }
 

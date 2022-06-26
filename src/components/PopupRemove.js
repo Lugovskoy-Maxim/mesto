@@ -12,9 +12,9 @@ export default class PopupRemove extends Popup {
     super.openPopup();
   }
 
-  loading(status){
+  loading(status, text){
     if(!status) {
-      this._submitButton.textContent = "Да"
+      this._submitButton.textContent = text;
     }else {
       this._submitButton.textContent = "Удаление..."
     }
